@@ -1,0 +1,28 @@
+
+
+.table-footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-footer p{
+  color: var(--primary-color);
+font-weight: 500;
+font-size: 14px;
+}
+body.dark .table-footer p{
+  color: var(--dark-text-color);
+}
+
+@media (min-width : 320px) and (max-width: 576px){
+  .table-footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+  }
+}
+
+

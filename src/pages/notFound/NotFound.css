@@ -1,0 +1,30 @@
+
+.all-error{
+  text-align: center;
+  margin-top: 100px;
+}
+.all-error img{
+    width: 280px;
+    margin: auto;
+
+}
+
+.content-error{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+button.my-btn{
+  width: 150px;
+}
+a.home-btn{
+  color: #fff;
+
+}
+
+
+
