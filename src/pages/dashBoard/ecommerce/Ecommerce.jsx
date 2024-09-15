@@ -17,7 +17,7 @@ import { PiWarningLight } from "react-icons/pi";
 // components 
 import DashBoardBox from "../../../components/dashboardBox/DashBoardBox";
 import BreadCrumb from "../../../components/BreadCrumb/BreadCrumb";
-import { fetchBrandDataFromApi, fetchDataFromApi, fetchProductFromApi } from "../../../utils/api";
+import { fetchBrandDataFromApi, fetchDataFromApi, fetchOrderFromApi, fetchProductFromApi, fetchUserDataFromApi, getReviewData } from "../../../utils/api";
 
 
 export const data = [
@@ -68,37 +68,50 @@ const Ecommerce = () => {
   const [productList, setProductList] = useState([]);
   const [brandData, setBrandData] = useState([]);  
   const [catData, setCatData ] = useState([]);
+  const [userData, setUserData ] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   const context = useContext(MyContext);
 
-    // get all products 
+    // get all api calls 
     useEffect(() => {
       fetchProductFromApi("/",).then((res) => {
           setProductList(res.productList);
       });
-    }, [productList]);
 
-  // get all brand list
-  useEffect(() => {
-    fetchBrandDataFromApi("/").then(res => {
-      setBrandData(res.brandList);
+      // get all brand 
+      fetchBrandDataFromApi("/").then(res => {
+        setBrandData(res.brandList);
+      });
+  
+    // get all category
+    fetchDataFromApi("/").then(res => {
+        setCatData(res.categoryList)
     });
 
-  // get all category
-  fetchDataFromApi("/").then(res => {
-      setCatData(res.categoryList)
-  });
+    // get all user
+    fetchUserDataFromApi("/").then((res) => {
+      setUserData(res.userList); 
+    });
 
-  }, [brandData, catData]); 
+    // get all order list 
+    fetchOrderFromApi("/").then((res) => {
+      setOrders(res.orderList)
+    });
 
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, []);  
+    // get all review list
+    getReviewData("/").then((res) => {
+      setReviews(res.reviews)
+    })
+
+    }, [productList, brandData, catData, userData, orders,  ]);
+  
   
    // show header footer 
    useEffect(() => {
     context.setIsHeaderFooterShow(true); 
-}, [context]); 
+   }, [context]); 
 
   
   return (
@@ -108,10 +121,10 @@ const Ecommerce = () => {
 
         <div className="row dashboard-div">
           <div className="col-sm-8 box-div ">
-              <DashBoardBox text={"Users"} color={["#1ba054", "#4dd988"]} total={278} icon={< FaRegUserCircle/> } grow={true} discountColor={"#187d44"} discount={"+35%"}  />
-              <DashBoardBox text={"Orders"} color={["#bf10e1", "#ed67ff"]} total={325}  icon={< FaCartArrowDown /> } discountColor={"#a808c3"} discount={"+20%"}/>
-              <DashBoardBox text={"Products"} color={["#2d79e6", "#63b2f6"]} total={840}  icon={< FaShoppingBag/> } discountColor={"#2262d3"} discount={"+55%"} />
-              <DashBoardBox text={"Reviews"} color={["#e1950e", "#f4cf2b"]} total={120} icon={< TbStars/> } grow={true} discountColor={"#ae640f"} discount={"+45%"} />
+              <DashBoardBox text={"Users"} color={["#1ba054", "#4dd988"]} total={userData?.length} icon={< FaRegUserCircle/> } grow={true} discountColor={"#187d44"} discount={"+35%"}  />
+              <DashBoardBox text={"Orders"} color={["#bf10e1", "#ed67ff"]} total={orders?.length}  icon={< FaCartArrowDown /> } discountColor={"#a808c3"} discount={"+20%"}/>
+              <DashBoardBox text={"Products"} color={["#2d79e6", "#63b2f6"]} total={productList?.length}  icon={< FaShoppingBag/> } discountColor={"#2262d3"} discount={"+55%"} />
+              <DashBoardBox text={"Reviews"} color={["#e1950e", "#f4cf2b"]} total={reviews?.length} icon={< TbStars/> } grow={true} discountColor={"#ae640f"} discount={"+45%"} />
           </div>
           <div className="col-sm-4 box-div2">
              <div className="anotherBox">

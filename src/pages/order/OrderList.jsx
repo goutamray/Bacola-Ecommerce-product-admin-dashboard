@@ -1,6 +1,6 @@
 
 // react icons 
-import { FaAngleLeft, FaAngleRight, FaRegEye, FaShoppingBag,  FaTrashAlt } from "react-icons/fa";
+import { FaRegEye, FaShoppingBag,  FaTrashAlt } from "react-icons/fa";
 import { HiDotsCircleHorizontal, HiDotsHorizontal } from "react-icons/hi";
 import { FaCarAlt } from "react-icons/fa";
 import { BiSolidDownload } from "react-icons/bi";

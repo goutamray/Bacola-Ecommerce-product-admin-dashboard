@@ -587,3 +587,38 @@ export const updateSliderData = async( url, updatedData ) => {
    }
  };
 
+
+/**
+ *  fetch message data from api
+ * @param {*} url 
+ * @returns 
+ */
+export const fetchMessageFromApi = async(url) => {
+   try {
+      const response = await axios.get("http://localhost:5050/api/v1/message"+url);
+      return response.data;
+   } catch (error) {
+      console.error('Error submitting form data:', error.message);
+      throw error; 
+   }  
+}; 
+
+
+/**
+ * Create review data
+ * @param {string} url - The endpoint URL (e.g., "/")
+ * @param {FormData} formData - The form data to submit
+ * @returns {Promise<Object>} - The response data from the server
+ */
+export const getReviewData = async(url ) => {
+   try {
+       const response = await axios.get("http://localhost:5050/api/v1/review"+url);
+       return response.data;
+   } catch (error) {
+      console.error('Error submitting form data:', error.message);
+      throw error; 
+   }
+};
+
+
+

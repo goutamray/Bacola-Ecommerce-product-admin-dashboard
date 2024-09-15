@@ -27,22 +27,24 @@ import SearchBox from "../searchBox/SearchBox";
 import { MyContext } from "../../App";
 
 import "./Header.css";
+import { fetchMessageFromApi } from "../../utils/api";
 const Header = () => {
   const [openDrop, setOpenDrop ] = useState(false); 
   const [openNotification, setOpenNotification ] = useState(false); 
   const [openMail, setOpenMail ] = useState(false); 
   const [cartOpen, setcartOpen ] = useState(false); 
 
+  const [messageData, setMessageData ] = useState([]); 
+
   const context = useContext(MyContext)
   const navigate = useNavigate();
 
   const [mobileSearch, setMobileSearch] = useState(false); 
 
+  // handle open search 
   const hanleOpenSearch = () => {
    setMobileSearch(() => !mobileSearch)
   }
-
-
 
  // handle open 
  const handleOpen  = () => {
@@ -96,6 +98,13 @@ const Header = () => {
      });
    }
  }, []);
+
+ // get all message
+ useEffect(() => {
+   fetchMessageFromApi("/").then((res) => {
+      setMessageData(res.messageList)
+   })
+ }, []); 
 
   return (
     <>
@@ -255,83 +264,35 @@ const Header = () => {
                   {/**** mail box  ******/}
                   <button className="open-btn " onClick={handleOpenMail}> <IoMdMail /> 
                     <div className="topper-box"> 
-                        <span> 5 </span>
+                        <span>  {messageData?.length}  </span>
                     </div>
                   </button>
                   {
                     openMail === true && 
                     <div className="notification-drop shadow">
                     <div className="top-bar-notification">
-                      <h4> Messages (23) </h4>
+                      <h4> Messages ( {messageData?.length} ) </h4>
                       <p> <IoMdSettings /> </p>
                     </div>
                     <div className="bottom-bar-notification">
-                      <div className="single-item-noti custom my-2">
-                         <div className="not-image">
-                            <img src={photo} alt="" className="mail-img "/>
-                            <div className="media-act "> </div>
+                     {
+                        messageData?.length !== 0 &&
+                        messageData?.map((item, index) => {
+                            return  <div className="single-item-noti custom my-2" key={index}>
+                            <div className="not-image">
+                               <img src={photo} alt="" className="mail-img "/>
+                               <div className="media-act "> </div>
+                            </div>
+                            <div className="not-info">
+                                 <h4> <span> <b>{item?.name} </b> - 1h  </span></h4>
+                                 <h6>{item?.message.substr(0, 50) + "...."} </h6>
+                            </div>
+                            <div className="noti-drop">
+                               <button> <BsThreeDotsVertical /> </button>
+                            </div>
                          </div>
-                         <div className="not-info">
-                              <h4> <span> <b>Goutam ray </b> - 1h  </span></h4>
-                              <h6> Lorem ipsum dolor sit amet, consectetur adipisicing elit.  </h6>
-                         </div>
-                         <div className="noti-drop">
-                            <button> <BsThreeDotsVertical /> </button>
-                         </div>
-                      </div>
-                      <div className="single-item-noti custom my-2">
-                         <div className="not-image">
-                            <img src={photo} alt="" className="mail-img "/>
-                            <div className="media-act "> </div>
-                         </div>
-                         <div className="not-info">
-                              <h4> <span> <b>Durjay ray  </b> - 6h  </span></h4>
-                              <h6> Lorem ipsum dolor sit amet, consectetur adipisicing elit.  </h6>
-                         </div>
-                         <div className="noti-drop">
-                            <button> <BsThreeDotsVertical /> </button>
-                         </div>
-                      </div>
-                      <div className="single-item-noti custom my-2">
-                         <div className="not-image">
-                            <img src={photo} alt="" className="mail-img "/>
-                            <div className="media-act "> </div>
-                         </div>
-                         <div className="not-info">
-                              <h4> <span> <b>Uttam ray </b> - 1d  </span></h4>
-                              <h6> Lorem ipsum dolor sit amet, consectetur adipisicing elit.  </h6>
-                         </div>
-                         <div className="noti-drop">
-                            <button> <BsThreeDotsVertical /> </button>
-                         </div>
-                      </div>
-                      <div className="single-item-noti custom my-2">
-                         <div className="not-image">
-                            <img src={photo} alt="" className="mail-img "/>
-                            <div className="media-act "> </div>
-                         </div>
-                         <div className="not-info">
-                              <h4> <span> <b>Boltu ray </b> - 2d  </span></h4>
-                              <h6> Lorem ipsum dolor sit amet, consectetur adipisicing elit.  </h6>
-                         </div>
-                         <div className="noti-drop">
-                            <button> <BsThreeDotsVertical /> </button>
-                         </div>
-                      </div>
-                      <div className="single-item-noti custom my-2">
-                         <div className="not-image">
-                            <img src={photo} alt="" className="mail-img "/>
-                            <div className="media-act "> </div>
-                         </div>
-                         <div className="not-info">
-                              <h4> <span> <b>Shanto ray </b> - 3d  </span></h4>
-                              <h6> Lorem ipsum dolor sit amet, consectetur adipisicing elit.  </h6>
-                         </div>
-                         <div className="noti-drop">
-                            <button> <BsThreeDotsVertical /> </button>
-                         </div>
-                      </div>
-                    
+                        })
+                     }
                     </div>
                     <div className="footer-bar">
                       <button> View All Messages </button>
