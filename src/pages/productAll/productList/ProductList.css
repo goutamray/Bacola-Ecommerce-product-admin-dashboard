@@ -232,6 +232,8 @@ span.product-size-data {
   font-weight: 400;
 }
 
+
+
 /****** Responsive css *******/
 @media (min-width: 320px) and (max-width: 576px) {
   .product-list-topper .part1 .total-product {
@@ -246,4 +248,14 @@ span.product-size-data {
   tbody tr td .sale-price {
     text-align: left !important;
   }
+
+.show-tablet{
+  display: inline-block;
+}
+.product-ram-data.mobile-hide {
+  display: none;
+}
+
+
+
 }

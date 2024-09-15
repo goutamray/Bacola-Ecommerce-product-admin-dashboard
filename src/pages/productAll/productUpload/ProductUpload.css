@@ -157,11 +157,13 @@ body.dark  h4.preview-manage{
     display: flex;
     flex-direction: column;
   }
-  .col-sm-7.upload-part1 {
-    width: 100%;
+  .col-sm-8.upload-part1 {
+    display: block;
+    width: 100% !important;
   }
-  .col-sm-5.upload-part2 {
-    width: 100%;
+  .col-sm-4.upload-part2 {
+    display: block;
+    width: 100% !important;
     margin-top: 20px;
   }
   .product-image-upload {
@@ -171,4 +173,13 @@ body.dark  h4.preview-manage{
   .product-image-upload .box-product-1 {
     width: 47%;
   }
+  .product-photo .single-product {
+    width: 23% !important;
+ }
+
+
+
 }
+
+
+

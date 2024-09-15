@@ -201,11 +201,11 @@ const Ecommerce = () => {
                       <th> uid </th>
                       <th> product </th>
                       <th> category </th>
-                      <th className="mobile-hide"> brand </th>
-                      <th className="mobile-hide"> price </th>
+                      <th className="mobile-hide "> brand </th>
+                      <th className="mobile-hide show-tablet"> price </th>
                       <th className="mobile-hide"> stock </th>
                       <th className="mobile-hide"> rating </th>
-                      <th className="mobile-hide"> action </th>
+                      <th className="mobile-hide "> action </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -237,8 +237,8 @@ const Ecommerce = () => {
                         </div>
                       </td>
                       <td> {item?.category?.name} </td>
-                      <td className="mobile-hide"> {item?.brand} </td>
-                      <td className="mobile-hide"> 
+                      <td className="mobile-hide "> {item?.brand} </td>
+                      <td className="mobile-hide show-tablet"> 
                          <p className="reg-price "> $ {item?.price}</p>
                          <p className="sale-price"> {item?.oldPrice} </p>
                       </td>
@@ -250,7 +250,7 @@ const Ecommerce = () => {
                              <p> (16) </p>
                           </div>
                       </td>
-                      <td className="mobile-hide">
+                      <td className="mobile-hide ">
                         <button className="eyeBtn" > <FaRegEye /> </button>
                         <button className="editBtn"> <FiEdit /> </button>
                         <button className="delBtn">  <FaTrashAlt /> </button>

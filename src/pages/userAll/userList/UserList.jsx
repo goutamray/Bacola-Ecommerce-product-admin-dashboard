@@ -104,7 +104,7 @@ const UserList = () => {
                       <th> S.L </th>
                       <th> CLIENT </th>
                       <th className="mobile-hide"> Role </th>
-                      <th className="mobile-hide"> EMAIL </th>
+                      <th className="mobile-hide show-tablet"> EMAIL </th>
                       <th> Phone </th>
                       <th> STATUS </th>
                       <th className="mobile-hide"> ISSUE DATE</th>
@@ -129,7 +129,7 @@ const UserList = () => {
                         </div>
                       </td>
                       <td> User </td>
-                      <td className="mobile-hide"> { item?.email }  </td>
+                      <td className="mobile-hide show-tablet"> { item?.email }  </td>
                       <td> { item?.phone }</td>
                       <td className="mobile-hide"> <p className="won"> Pending </p> </td>
                       <td className="mobile-hide"> 15/06/2022 14:02</td>

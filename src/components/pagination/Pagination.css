@@ -26,3 +26,13 @@ body.dark .table-footer p{
 }
 
 
+@media (min-width : 576px) and (max-width: 768px){
+
+  .table-footer {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+
+}
+

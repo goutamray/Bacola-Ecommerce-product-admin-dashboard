@@ -425,11 +425,148 @@ body.dark button.mobile-search-data svg{
   display: none;
 }
 
+/**** mobile search css *****/
+button.mobile-search-box {
+  height: 37px !important;
+  width: 37px !important;
+  border-radius: 50%;
+  background-color: #ebebeb;
+  display: inline-block;
+  border: none;
+}
+.close-search-bar {
+   margin: 20px;
+   text-align: end;
+}
+.close-search-bar button {
+   border: none; 
+}
+.close-search-bar button svg{
+  font-size: 22px;
+}
+.dynamic-search {
+  background-color: #efefef;
+  height: 720px;
+  width: 390px !important;
+  position: absolute;
+  top: 0;
+  left: -66% !important;
+  z-index: 999;
+}
+.dynamic-search .header-search {
+  display: block;
+  width: 350px !important;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
 }
 
 
 /*****  tablet responsive   *****/
 @media (min-width : 576px) and (max-width: 768px){
+.header-row {
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+.menu-option .logo a {
+  position: relative;
+  top: 0px !important; 
+}
+.col-sm-2.col-md-12.part1.menu-option {
+  width: 55% !important;
+}
+.mobile-hide-btn {
+   display: none;
+}
+.myAcc .user-name{
+  display: none;
+}
+.logo a span {
+  display: block;
+  width: 225px;
+}
+.menu-part.mobile-none {
+  display: none;
+}
+.search-box {
+  display: none;
+}
+.col-sm-3.part2 {
+  width: 0% !important;
+}
+.col-sm-7.part3{
+  width: 40% !important;
+}
+button.mobile-search-data {
+  height: 40px;
+  width: 40px;
+  border: none;
+  display: block;
+  border-radius: 50%;
+  background-color: #f0f5ff;
+  margin-right: 10px;
+}
+button.mobile-search-data svg{
+  color: #101016;
+  font-size: 20px;
+}
+body.dark button.mobile-search-data{
+  background-color: transparent !important;
+}
+body.dark button.mobile-search-data svg{
+  color: #fff;
+}
+.topper-box {
+  display: none;
+}
+.searchbox {
+  width: 600px ;
+  height: 40px;
+  background: var(--primary-bg);
+  border-radius: 5px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+  margin-bottom: 0px !important;
+}
+
+/**** mobile search css *****/
+button.mobile-search-box {
+  height: 37px !important;
+  width: 37px !important;
+  border-radius: 50%;
+  background-color: #ebebeb;
+  display: inline-block;
+  border: none;
+}
+.close-search-bar {
+   margin: 20px;
+   text-align: end;
+}
+.close-search-bar button {
+   border: none; 
+}
+.close-search-bar button svg{
+  font-size: 22px;
+}
+.dynamic-search {
+  background-color: #efefef;
+  height: 920px;
+  width: 760px !important;
+  position: absolute;
+  top: 0;
+  left: -160% !important;
+  z-index: 999;
+}
+.dynamic-search .header-search {
+  display: block;
+  width: 760px !important;
+  margin-top: 10px;
+  margin-left: 10px;
+}
 
 }
 

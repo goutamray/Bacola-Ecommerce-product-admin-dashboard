@@ -447,6 +447,26 @@ body.dark .card.p-3.right-part2{
   margin-top: 15px !important;
 }
 
+  .row.dashboard-div {
+      display: flex;
+      flex-direction: column;
+  }
+  .col-sm-8.box-div {
+    width: 100%;
+  }
+  .col-sm-4.box-div2 {
+    width: 100%;
+  }
+  .row .col-sm-10.output {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    padding: 0px !important;
+  }
+  
+  .mobile-hide.show-tablet{
+    display: block;
+  }
+  
 }
 
 

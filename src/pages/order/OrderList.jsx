@@ -112,24 +112,24 @@ const OrderList = () => {
                       <th> Order Id </th>
                       <th> Customer Name </th>
                       <th> Phone </th>
-                      <th> Email </th>
+                      <th className="mobile-hide-data"> Email </th>
                       <th> Total </th>
-                      <th> Address </th>
-                      <th> Status </th>
+                      <th className="mobile-hide-data"> Address </th>
+                      <th className="mobile-hide-data"> Status </th>
                       <th> action </th>
                     </tr>
                 </thead>
                 <tbody>
                   {
                     orders.length !== 0 && orders?.map((item, index) => {
-                      return   <tr className="align-middle" key={index}> 
+                      return  <tr className="align-middle" key={index}> 
                       <td> {item?._id} </td>
                       <td> {item?.name}</td>
                       <td> {item?.phone} </td>
-                      <td> {item?.email} </td>
+                      <td className="mobile-hide-data"> {item?.email} </td>
                       <td> {item?.amount} </td>
-                      <td> {item?.address} </td>
-                      <td> <p className="won"> {item?.status} </p> </td>
+                      <td className="mobile-hide-data"> {item?.address} </td>
+                      <td className="mobile-hide-data"> <p className="won"> {item?.status} </p> </td>
                       <td>
                         <button className="eyeBtn" > <FaRegEye /> </button>
                         <button className="editBtn"> <BiSolidDownload /> </button>

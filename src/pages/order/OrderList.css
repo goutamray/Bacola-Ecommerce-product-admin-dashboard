@@ -141,6 +141,15 @@ body.dark  .col-single.abcd input::-webkit-input-placeholder {
 .product-list-topper .part1 .total-product {
   padding: 6px;
 }
+
+th.mobile-hide-data{
+  display: none;
+}
+td.mobile-hide-data{
+  display: none;
+}
+
+
 }
 
 

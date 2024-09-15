@@ -142,7 +142,10 @@ body.dark  .col-single.abcd input::-webkit-input-placeholder {
 .mobile-hide{
   display: none;
 }
-
+.show-tablet{
+  display: block;
+  
+}
 } 
 
 

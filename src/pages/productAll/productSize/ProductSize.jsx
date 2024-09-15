@@ -166,7 +166,7 @@ const ProductSize = () => {
                  </div>
             </div>
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-6 upload-part2">
           <div className="product-table card p-3 custom-height ">
            <div className="table-responsive custom-table">
               <table className="table table-bordered table-striped">

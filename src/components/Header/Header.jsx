@@ -10,7 +10,7 @@ import shirt from "../../assets/img/shirt.png";
 
 // react icons 
 import { MdMenuOpen, MdOutlineLightMode } from "react-icons/md";
-import { IoMenu } from "react-icons/io5"; 
+import { IoClose, IoMenu } from "react-icons/io5"; 
 import { CiDark } from "react-icons/ci"; 
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaCaretDown, FaHeart, FaRegUserCircle } from "react-icons/fa";
@@ -35,6 +35,13 @@ const Header = () => {
 
   const context = useContext(MyContext)
   const navigate = useNavigate();
+
+  const [mobileSearch, setMobileSearch] = useState(false); 
+
+  const hanleOpenSearch = () => {
+   setMobileSearch(() => !mobileSearch)
+  }
+
 
 
  // handle open 
@@ -133,9 +140,18 @@ const Header = () => {
                     <SearchBox /> 
                   </div>
 
-                    <button className="mobile-search-data"> 
+                    <button className="mobile-search-data" onClick={hanleOpenSearch}> 
                         <IoSearchSharp /> 
                     </button>
+
+                    {
+                     mobileSearch &&  <div className="dynamic-search ">  
+                     <div className="close-search-bar" >
+                          <button onClick={hanleOpenSearch}> <IoClose /> </button>
+                     </div>
+                       <SearchBox hanleOpenSearch={hanleOpenSearch}/> 
+                    </div>
+                    }
 
                     <button 
                        className="mobile-search-data menu-btn"

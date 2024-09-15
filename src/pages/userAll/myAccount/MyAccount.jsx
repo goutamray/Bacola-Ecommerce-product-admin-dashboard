@@ -239,7 +239,7 @@ const handlePasswordSubmit = (e) => {
                                           </div>
                                       </div>
                                 </div>
-                              <div className="col-md-7">
+                              <div className="col-md-9">
                                   <div className="row">
                                   <div className="col-md-6">
                                       <div className="form-group">

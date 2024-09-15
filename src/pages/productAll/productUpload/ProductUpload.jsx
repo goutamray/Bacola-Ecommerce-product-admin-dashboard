@@ -589,7 +589,7 @@ const ProductUpload = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-4 upload-part2">
             <div className="card p-2 preview">
               <h4 className="preview-manage"> Product Preview Images </h4>
               <div className="card-body">

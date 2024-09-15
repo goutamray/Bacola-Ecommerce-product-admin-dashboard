@@ -15,7 +15,7 @@ const Home = () => {
 const context = useContext(MyContext); 
 
 useEffect(() => {
-  context.setIsHeaderFooterShow(true); 
+  context?.setIsHeaderFooterShow(true); 
 }, []);  
 
   return (

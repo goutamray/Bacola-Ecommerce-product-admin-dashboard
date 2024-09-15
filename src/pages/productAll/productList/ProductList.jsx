@@ -323,6 +323,9 @@ const ProductList = () => {
  }, [subCatData]); 
 
 
+ console.log(productList);
+ 
+
   return (
     <>
       <div className="right-content">
@@ -432,13 +435,13 @@ const ProductList = () => {
                       <th> uid </th>
                       <th> product </th>
                       <th> category </th>
-                      <th className="mobile-hide"> sub cat </th>
+                      <th className="mobile-hide show-tablet"> sub cat </th>
                       <th className="mobile-hide"> brand </th>
                       <th className="mobile-hide"> discount </th>
                       <th className="mobile-hide"> P Ram </th>
                       <th className="mobile-hide"> P Size </th>
                       <th className="mobile-hide"> P weight </th>
-                      <th className="mobile-hide"> price </th>
+                      <th > price </th>
                       <th className="mobile-hide"> stock </th>
                       <th className="mobile-hide"> rating </th>
                       <th className="mobile-hide"> action </th>
@@ -458,14 +461,14 @@ const ProductList = () => {
                                <h6 className="product-heading">
                                 {
                                 item?.name?.length > 25 ?
-                                  item?.name.substring(0, 20)+ ". . ." : 
+                                  item?.name.substring(0, 20)+ "..." : 
                                   item?.name
                                  } 
                                </h6>
                                <p>
                                 {
                                 item?.description?.length > 30 ?
-                                  item.description.substring(0, 25)+ ". . ." : 
+                                  item.description.substring(0, 25)+ "..." : 
                                   item.description
                                  } 
                                </p>
@@ -475,7 +478,7 @@ const ProductList = () => {
                         </div>
                       </td>
                       <td> {item?.category?.name}</td>
-                      <td className="mobile-hide"> {item?.subCat?.name}</td>
+                      <td className="mobile-hide show-tablet"> {item?.subCat?.name}</td>
                       
                       <td className="mobile-hide"> {item?.brand} </td>
                       <td className="mobile-hide"> {item?.discount}</td>
@@ -490,7 +493,7 @@ const ProductList = () => {
                       <td className="mobile-hide"> {item?.productWeight?.map((item___, index___) => {
                         return <span key={index___} className="product-weight-custom"> {item___}</span>
                       })} </td>
-                      <td className="mobile-hide"> 
+                      <td > 
                          <p className="reg-price "> {item?.price}</p>
                          <p className="sale-price"> {item?.oldPrice} </p>
                       </td>
